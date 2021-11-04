@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Page</title>
+</head>
+<body>
+    <h1 id="greet" >Here will go Greeting</h1>
+
+    <form>
+        <label for="time">Enter the time: Hours And Minutes</label><br>
+        <input type="number" name="time" id="hours" min="0" max="23" step="1" autofocus value="12">
+        <span>:</span>
+        <input type="number" name="time" id="minutes" min="0" max="59" step="1" value="00">
+        <br><br>
+        <input type="button" value="Greet me!" onmousedown="greetMe()">
+    </form>
+    
+
+    <script>
+        function greetMe() {
+            var inHours = document.getElementById('hours').value;
+            var answer = "Good ";
+            if (inHours < 12) { answer = answer + "morning." }
+                else if (inHours < 18) { answer = answer + "afternoon."}
+                    else {answer = answer + "evening." };
+ // chceck is entered hours are correct
+            if (inHours < 0 || inHours > 23) 
+                {var answer = "You entered incorrect hours!";
+                document.getElementById('hours').value = 0;
+            };
+            document.getElementById('greet').innerHTML = answer;
+        }
+    </script>
+</body>
+</html>
